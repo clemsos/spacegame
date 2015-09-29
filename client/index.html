@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>SPACEGAME</title>
+         <link href=' fonts/04B_21__.TTF' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!-- Background -->
+        <canvas id="can" width="400" height="400"style="border:2px solid #000100" ></canvas>
+        <!--  -->
+        <div id="main">
+            <h1>SPACEGAME</h1>
+            <nav>
+                <button id="new-game">START</button>
+                <button id="save-game">SAVE</button>
+                <button id="get-game">GET</button>
+            </nav>
+            <div class="player right">
+                <div id="space"></div>
+            </div>
+            <div class="player left">
+                <div id="prevSpace"></div>
+            </div>
+        </div>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
+        <script type="text/javascript" src="js/SpaceGame.js"></script>
+        <script type="text/javascript" src="js/stars.js"></script>
+        <script type="text/javascript" src="js/bundle.js"></script>
+    </body>
+</html>

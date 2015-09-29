@@ -1,15 +1,27 @@
+/*
+* SpaceGame
+* create a small game in SVG
+* 
+*/
+
 SpaceGame = {
     started : false,
-    timer : "Ready",
-    score : 0,
-    countDown : 10,
-    divName : "game",
     svg : null,
-    init : function(divName) {
-        console.log("init new game ! ");
+    init : function(divName, settings) {
+        if(!settings) settings = {};
+        console.log(settings);
+        
+        // init values
+        this.timer = settings.timer || "READY";
+        this.countDown = settings.countDown || 10;
+        this.score = settings.score || 0;
+        this.divName = divName || "game";
+        this.finalCallback = settings.finalCallback || function(score){ alert(score); };  
+
+        // remove previous values
         d3.selectAll(divName+' svg').remove(); // clean
         this.initSVG(divName);
-        this.divName = divName;
+
         return this; 
     },
     initSVG : function(divName) {
@@ -64,8 +76,16 @@ SpaceGame = {
               },
               function(){
                 self.started = false; // end game
-                self.timerCaption.text('Game finished');
+                self.timerCaption.text('FINISHED!');
+                self.finalCallback(self.score);
         })
+    },
+
+    setScore : function(score) {
+        this.score= score;
+        d3.select(this.divName)
+            .select("circle")
+            .attr("r", this.score*5);
     },
 
     increaseScore : function () {
