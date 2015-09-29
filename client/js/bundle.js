@@ -4,6 +4,8 @@ var game;
 stars();
 run();
 
+updateBestScore();
+
 // events
 d3.select("#new-game")
     .on('click', function () {
@@ -39,13 +41,19 @@ d3.select("#get-game")
                 score : score
             };
 
-            console.log(score);
-
             var loadedGame = SpaceGame.init("#prevSpace", settings);
-            loadedGame.setScore(score);
+            loadedGame.drawCircle(score, 300);
+            updateBestScore();
         })
      });
 
+d3.select("#save-game")
+    .on('click', function () { 
+        saveScore(12, function (score) {
+            console.log(score);
+            updateBestScore();
+        })
+    })
 
 // load the last game, returns the last score
 function loadLastScore(callback) {
@@ -56,6 +64,7 @@ function loadLastScore(callback) {
     });
 }
 
+// save score
 function saveScore (score, callback) {
     console.log(score);
     d3.xhr("/save")
@@ -68,4 +77,20 @@ function saveScore (score, callback) {
                     callback(resp);
             }
         );
+}
+
+// load the best score
+function loadBestScore(callback) {
+    d3.json("/best", function(err, json) {
+        if (err) throw err;
+        var score = json.score;
+        callback(score);
+    });
+}
+
+// best visual update
+function updateBestScore() {
+    loadBestScore(function (score) {
+        d3.select("#best").text(score)
+    });
 }

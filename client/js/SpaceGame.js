@@ -25,8 +25,8 @@ SpaceGame = {
         return this; 
     },
     initSVG : function(divName) {
-        var w = 500,
-            h = 500;
+        var w = window.innerWidth/2,
+            h = window.innerHeight/2 +200;
 
         // draw SVG 
         this.svg = d3.select(divName)
@@ -38,7 +38,9 @@ SpaceGame = {
         var circle = this.svg.append("circle")
             .attr("cx", w/2)
             .attr("cy", h/2)
-            .style("fill", "steelblue")
+            .style("stroke", "steelblue")
+            .style("fill", "none")
+            .style("opacity", ".8")
             .attr("r", 0);
 
         // draw captions
@@ -49,13 +51,16 @@ SpaceGame = {
         this.scoreCaption = caption.append("text")
             .attr("class", "score")
             .text(this.score)
+            .style("fill", "green")
             .attr("x", 10)
             .attr("y", 10)
 
         this.timerCaption = caption.append("text")
             .attr("class", "timer")
             .text(this.timer)
-            .attr("x", 60)
+            .style("fill", "red")
+            .style('text-anchor', "end")
+            .attr("x", w -50)
             .attr("y", 10);
     },
 
@@ -81,18 +86,24 @@ SpaceGame = {
         })
     },
 
-    setScore : function(score) {
+    drawCircle : function(score, duration) {
         this.score= score;
         d3.select(this.divName)
             .select("circle")
-            .attr("r", this.score*5);
+            .transition()
+            .duration(duration)
+            .attr("stroke-width", 5)
+            .attr("r", score*5+50)
+            .transition()
+            .duration(duration)
+            .attr("stroke-width", 20)
+            .attr("r", score*5)
+            .ease('bounce');
     },
 
     increaseScore : function () {
         this.score++;
-        d3.select(this.divName)
-            .select("circle")
-            .attr("r", this.score*5);
+        this.drawCircle(this.score, 150);
     },
 
     _gameTimer : function(start, execute, callback) {

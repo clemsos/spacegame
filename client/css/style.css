@@ -21,6 +21,9 @@ h1 {
     font-size: 30pt;
 }
 
+h1 small {
+    font-size: .5em;
+}
 #main {
     width: 100%;
 }

@@ -3,7 +3,7 @@
 
 import os
 from server import app, basedir
-from server.db import save_score, load_last_score
+from server.db import save_score, load_last_score, get_best
 from flask import render_template, request, url_for, make_response, jsonify
 
 @app.route("/")
@@ -11,12 +11,17 @@ def home():
     return make_response(open(os.path.join(basedir, '../client/index.html')).read())
 
 @app.route("/last/",  methods=['GET'])
-def api_get():
+def api_get_score():
     score = load_last_score()
     return jsonify( {"score" : str(score)} )
 
+@app.route("/best/",  methods=['GET'])
+def api_best_score():
+    score = get_best()
+    return jsonify( {"score" : str(score)} )
+
 @app.route("/save",  methods=['GET', 'POST'])
-def api_save():
+def api_save_score():
     req_json = request.get_json()
     score = req_json["score"]
     save_score(score)

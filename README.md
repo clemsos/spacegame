@@ -1,14 +1,21 @@
 # spacegame
-Some games from outer space
 
+A game from outer space
 
-## Deploy
+## Run
+
+    python run.py
+
+#### Dependencies
 
     virtualenv venv
     . venv/bin/activate
     pip install -r requirements.txt
 
-Credits :
+
+
+## Credits
 
 * Font from http://www.04.jp.org/
 * Music from
+* Thx to Le CLub
