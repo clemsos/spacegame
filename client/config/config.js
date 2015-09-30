@@ -11,6 +11,10 @@ config.api = {
 
 // Custom to each env
 switch(env){
+  case 'production':
+        config.api.spacegame.url = "139.162.4.177";
+        config.api.spacegame.port = 5010;
+  break;
   case 'test':
         config.api.spacegame.url = "localhost";
         config.api.spacegame.port = 5000;

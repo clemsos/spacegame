@@ -3,7 +3,7 @@ node_modules
 
 flask-fabric-deploy
 spacegame.sublime-workspace
-
+spacegame.sublime-project
 
 venv
 bower_components

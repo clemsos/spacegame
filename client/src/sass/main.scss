@@ -52,6 +52,16 @@ h1 {
     }
 }
 
+.instructions {
+    font-size: .6em;
+    text-decoration: blink; 
+    animation: blinker 1.7s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
+}
+@keyframes blinker {  
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 .player {
     margin:0;
     padding: 0;
