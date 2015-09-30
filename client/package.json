@@ -1,0 +1,32 @@
+{
+  "name": "spacegame-ui",
+  "version": "0.0.1",
+  "description": "Space Game UI",
+  "main": "src/js/app.js",
+  "dependencies": {
+    "d3": "^3.5.6"
+  },
+  "devDependencies": {
+    "browserify": "~6.2.0",
+    "browserify-test": "~1.2.0 ",
+    "envify": "~3.0.0",
+    "mocha": "~2.2.5 ",
+    "uglifyjs": "^2.4.2",
+    "watchify": "~2.1.0"
+  },
+  "scripts": {
+    "start": "npm run watch-js & npm run watch-css",
+    "build": "npm run build-js && npm run build-css",
+    "watch-js": "watchify . -o js/bundle.js -v -d .",
+    "build-js": "browserify src/js/app.js | uglifyjs -cm > js/bundle.min.js",
+    "watch-css": "sass --watch src/sass/main.scss:css/style.css",
+    "build-css": "sass src/sass/main.scss css/style.min.css --style compressed ",
+    "test": "browserify-test"
+  },
+  "author": "Clément Renaud <hi@clementrenaud.com>",
+  "browserify": {
+    "transform": [
+      "envify"
+    ]
+  }
+}

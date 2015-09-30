@@ -8,9 +8,28 @@ A game from outer space
 
 #### Dependencies
 
+**Python server **
+
     virtualenv venv
     . venv/bin/activate
     pip install -r requirements.txt
+
+**JS client **
+
+    cd client
+    npm install
+    npm run build
+
+## Dev
+
+**Run the Python server**
+
+    . venv/bin/activate
+    python run.py
+
+**Compile the JS/CSS client app** (will watch all changes in JS and CSS)
+
+    npm start
 
 ## Test
 
@@ -19,7 +38,7 @@ A game from outer space
 
 ## Deployment
 
-Deployed on Linode VPS Debian 6.1 with Gunicorn and Supervisor using my [flask-fabric-deploy](https://github.com/clemsos/flask-fabric-deploy) scripts. (Slightly modified to ignore nginx conf)
+Deployed on Linode VPS Debian 6.1 with Virtualenv, Gunicorn and Supervisor using my [flask-fabric-deploy](https://github.com/clemsos/flask-fabric-deploy) scripts. (Slightly modified to ignore nginx conf)
 
     git clone git@github.com:clemsos/flask-fabric-deploy.git
     pip install -r requirements.txt

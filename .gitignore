@@ -1,9 +1,9 @@
-flask-fabric-deploy
+node_modules
+.sass-cache
 
-package.json
+flask-fabric-deploy
 spacegame.sublime-workspace
 
-node_modules
 
 venv
 bower_components

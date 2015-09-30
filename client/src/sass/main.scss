@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "04B";
+    src: url('../fonts/04B_21__.TTF');
+}
+
+html {
+    overflow: hidden;
+    margin: 0;
+    /*background-color: #000084;*/
+    font-family: "04B", Monaco, Menlo, Consolas, "Courier New", monospace;
+    font-size: 18px;
+    line-height: 20px;
+    color: #eee;
+}
+
+svg text {
+    fill: #eee;
+}
+
+h1 {
+    font-size: 30pt;
+}
+
+h1 small {
+    font-size: .5em;
+}
+#main {
+    width: 100%;
+}
+
+.player {
+    margin:0;
+    padding: 0;
+    height: 100vh;
+    width : 49%;
+    border: 2px dotted #eee;
+}
+
+.left {
+    float:left;
+}
+.right {
+    float: left;
+}
+
+
+canvas {
+    position : absolute;
+    top : 0;
+    left : 0;
+    height: 100%;
+    width: 100%;
+}
+
+#main {
+    position : absolute;
+}

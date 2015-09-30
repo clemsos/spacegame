@@ -1,10 +1,11 @@
 /*
 * SpaceGame
-* create a small game in SVG
+* create a small SVG game 
 * 
 */
+var d3 = require('d3');
 
-SpaceGame = {
+module.exports = {
     started : false,
     svg : null,
     init : function(divName, settings) {

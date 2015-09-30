@@ -1,3 +1,8 @@
+/*
+* Helper to draw stars on a canvas background 
+*
+*/
+
 function stars() {
   canvas = document.getElementById("can");
   if (canvas.getContext) {
@@ -52,4 +57,9 @@ function run() {
     ctx.closePath();
     ctx.fill();
   }
+}
+
+module.exports = {
+  create : stars,
+  run : run
 }
