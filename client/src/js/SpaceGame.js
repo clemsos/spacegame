@@ -5,24 +5,22 @@
 */
 var d3 = require('d3');
 
-module.exports = {
-    started : false,
-    svg : null,
-    init : function(divName, settings) {
-        if(!settings) settings = {};
-        console.log(settings);
-        
-        // init values
-        this.timer = settings.timer || "READY";
-        this.countDown = settings.countDown || 10;
-        this.score = settings.score || 0;
-        this.divName = divName || "game";
-        this.finalCallback = settings.finalCallback || function(score){ alert(score); };  
+function SpaceGame (settings) {
+    if(!settings) settings = {};
 
-        // remove previous values
+    // init values
+    this.timer = settings.timer || "READY";
+    this.countDown = settings.countDown || 10;
+    this.score = settings.score || 0;
+    this.divName = settings.divName || "game";
+    this.finalCallback = settings.finalCallback || function(score){ alert(score); };  
+}
+
+SpaceGame.prototype = {
+    init : function(divName) {
         d3.selectAll(divName+' svg').remove(); // clean
+        this.divName = divName;
         this.initSVG(divName);
-
         return this; 
     },
     initSVG : function(divName) {
@@ -128,3 +126,5 @@ module.exports = {
         self.counter = setInterval(timer, 1000);
     }
 }
+
+module.exports = SpaceGame

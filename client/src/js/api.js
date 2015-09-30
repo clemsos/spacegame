@@ -31,7 +31,7 @@ function saveScore (score, callback) {
         json: { 'score': score }
     }, function(err, response, body) {
             if(err) throw err;
-            callback(body);
+            callback(body.score);
     });
 
 }

@@ -31,7 +31,7 @@ A game from outer space
 
     npm start
 
-NB : to watch continuous test, you can use ```browserify-test --watch```  and  navigate to http://localhost:7357. You may need to install ```npm install --global browserify-test```
+
 
 ## Test
 
@@ -42,7 +42,11 @@ NB : to watch continuous test, you can use ```browserify-test --watch```  and  n
 
 **Test client** 
 
-    npm run test
+For continuous test, you need to install ```npm install --global browserify-test```
+
+    browserify-test --watch
+    # navigate to http://localhost:7357
+
 
 ## Deployment
 

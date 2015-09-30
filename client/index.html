@@ -1,8 +1,8 @@
 <html>
     <head>
         <title>SPACEGAME</title>
-         <link href=' fonts/04B_21__.TTF' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/style.css">
+         <link href=' fonts/04B_21__.TTF' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <!-- Background -->
@@ -10,20 +10,31 @@
         <!--  -->
         <div id="main">
             <h1>SPACEGAME
-                <small>BEST SCORE : <span id="best"></span>
+                <small>BEST SCORE : <span id="best"></span></small>
             </h1>
-            <nav>
-                <button id="new-game">START</button>
-                <button id="save-game">SAVE</button>
-                <button id="get-game">GET</button>
-            </nav>
             <div class="player right">
-                <div id="space"></div>
+                <div class="gamer">
+                    <a href="#" class="btn new-game">START GAME</a>
+                </div>
+                <div id="space">
+                </div>
             </div>
             <div class="player left">
                 <div id="prevSpace"></div>
             </div>
+        </div> <!-- end main  -->
+
+        <div id="overlay">
+            <div id="modal">
+                <div class="modal-header">
+                    <a href="#" class="btn close-modal close">&#10005;</a>
+                </div>
+                <h3 id="modalTitle">Test</h3>
+                <p id="modalText">Modal Text</p>
+                <a href="#" class="btn new-game" id="modalButton">Button</a>
+            </div>
         </div>
+
         <script type="text/javascript" src="js/bundle.js"></script>
     </body>
 </html>
