@@ -1,9 +1,4 @@
-/* 
-    http://meyerweb.com/eric/tools/css/reset/ 
-    v2.0 | 20110126
-    License: none (public domain)
-*/
-@meyer-reset @font-face {
+@font-face {
   font-family: "04B";
   src: url("../fonts/04B_21__.TTF"); }
 html {

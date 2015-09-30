@@ -63,10 +63,10 @@ function startNewGame() {
 
     // settings for the game
     var settings= {
-        countDown : 5,
+        countDown : 10,
         finalCallback : function (score) { 
             api.save(score, function(score){
-                modal.show("CONGRATS!", "You made a score of : "+score, "PLAY AGAIN?");
+                modal.show("CONGRATS!", "YOUR SCORE : "+score, "PLAY AGAIN?");
                 updateBestScore();
             }); 
         }
