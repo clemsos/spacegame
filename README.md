@@ -58,6 +58,11 @@ Deployed on Linode VPS Debian Jessie 8  with Virtualenv, Gunicorn and Supervisor
 
 ## Credits
 
-* Font from http://www.04.jp.org/
-* Music from
-* Thx to Le CLub
+* Font from http://www.04.jp.org
+* Thx to Rhizi for the mission & Le Club for the music
+
+## TODO
+
+* server : replace SpaceGame```new``` with ```Object.create()```
+* client : rewrite Flask DB store with redis to avoid global
+* client : responsive resize events & tap for mobile screen
