@@ -2,9 +2,10 @@
 * Helper to draw stars on a canvas background 
 *
 */
+var Canvas = require('canvas-browserify'); // required for testing purposes
 
 function stars() {
-  canvas = document.getElementById("can");
+  canvas = document.getElementById("can") || new Canvas(10, 10);
   if (canvas.getContext) {
     ctx = canvas.getContext("2d");
     var width = canvas.width = window.innerWidth;  

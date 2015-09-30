@@ -31,10 +31,18 @@ A game from outer space
 
     npm start
 
+NB : to watch continuous test, you can use ```browserify-test --watch```  and  navigate to http://localhost:7357. You may need to install ```npm install --global browserify-test```
+
 ## Test
+
+**Test server**
 
     pip install -r dev_requirements.txt
     py.test tests
+
+**Test client** 
+
+    npm run test
 
 ## Deployment
 

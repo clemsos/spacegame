@@ -1,6 +1,10 @@
+// app.js
+
+var d3 = require('d3');
+
 var SpaceGame = require("./SpaceGame"); 
 var stars = require("./stars");
-var d3 = require('d3');
+var api = require("./api");
 
 // star background
 stars.create();
@@ -15,7 +19,7 @@ d3.select("#new-game")
         var settings= {
             countDown : 5,
             finalCallback : function (score) { 
-                saveScore(score, function(score){
+                api.save(score, function(score){
                     console.log(score);
                 }); 
             }
@@ -36,7 +40,7 @@ d3.select("body")
 // load a game
 d3.select("#get-game")
     .on('click', function () { 
-        loadLastScore(function (score) {
+        api.load(function (score) {
 
             var settings = {
                 timer : "PREVIOUS",
@@ -51,48 +55,17 @@ d3.select("#get-game")
 
 d3.select("#save-game")
     .on('click', function () { 
-        saveScore(12, function (score) {
+        api.save(12, function (score) {
             console.log(score);
             updateBestScore();
         })
     })
 
-// load the last game, returns the last score
-function loadLastScore(callback) {
-    d3.json("/last", function(err, json) {
-        if (err) throw err;
-        var score = json.score;
-        callback(score);
-    });
-}
 
-// save score
-function saveScore (score, callback) {
-    console.log(score);
-    d3.xhr("/save")
-       .header("Content-Type", "application/json")
-       .post( 
-             JSON.stringify({ 'score': score }), 
-             function(err, data) {
-                    if(err) throw err;
-                    var resp = JSON.parse(data.response);
-                    callback(resp);
-            }
-        );
-}
-
-// load the best score
-function loadBestScore(callback) {
-    d3.json("/best", function(err, json) {
-        if (err) throw err;
-        var score = json.score;
-        callback(score);
-    });
-}
 
 // best visual update
 function updateBestScore() {
-    loadBestScore(function (score) {
+    api.load(function (score) {
         d3.select("#best").text(score)
     });
 }
