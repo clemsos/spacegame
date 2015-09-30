@@ -17,16 +17,17 @@ A game from outer space
     pip install -r dev_requirements.txt
     py.test tests
 
-## Deploy
+## Deployment
 
-You can deploy using my [flask-fabric-deploy](https://github.com/clemsos/flask-fabric-deploy) scripts.
+Deployed on Linode VPS Debian 6.1 with Gunicorn and Supervisor using my [flask-fabric-deploy](https://github.com/clemsos/flask-fabric-deploy) scripts. (Slightly modified to ignore nginx conf)
 
     git clone git@github.com:clemsos/flask-fabric-deploy.git
+    pip install -r requirements.txt
+    cp config/servers.py.sample config/servers.py
     # edit the config/servers.py
-    fab prod setup 
+    fab prod setup_debian
+    fab prod setup_project
     fab prod deploy
-
-
 
 ## Credits
 
