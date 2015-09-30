@@ -2,19 +2,16 @@
 
 A game from outer space
 
-## Run
 
-    python run.py
+## Dependencies
 
-#### Dependencies
-
-**Python server **
+**Python server**
 
     virtualenv venv
     . venv/bin/activate
     pip install -r requirements.txt
 
-**JS client **
+**JS client**
 
     cd client
     npm install
@@ -30,7 +27,6 @@ A game from outer space
 **Compile the JS/CSS client app** (will watch all changes in JS and CSS)
 
     npm start
-
 
 
 ## Test
@@ -50,7 +46,7 @@ For continuous test, you need to install ```npm install --global browserify-test
 
 ## Deployment
 
-Deployed on Linode VPS Debian 6.1 with Virtualenv, Gunicorn and Supervisor using my [flask-fabric-deploy](https://github.com/clemsos/flask-fabric-deploy) scripts. (Slightly modified to ignore nginx conf)
+Deployed on Linode VPS Debian Jessie 8  with Virtualenv, Gunicorn and Supervisor using my [flask-fabric-deploy](https://github.com/clemsos/flask-fabric-deploy) scripts. (Slightly modified to ignore nginx conf)
 
     git clone git@github.com:clemsos/flask-fabric-deploy.git
     pip install -r requirements.txt
