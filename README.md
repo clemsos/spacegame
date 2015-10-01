@@ -7,7 +7,9 @@ A game from outer space
 
 Basic config is available in ```config.json``` file.
 
+
 * ```database``` : ```null``` or ```redis```
+* ```secret``` : salt / key for Flask 
 * ```default_best``` : default best score when initiating
 
 ## Dependencies
@@ -43,7 +45,7 @@ to use redis, run ```pip install-redis```
 **Test server**
 
     pip install -r dev_requirements.txt
-    py.test tests
+    ./run_tests.sh
 
 **Test client** 
 
@@ -73,5 +75,5 @@ Deployed on Linode VPS Debian Jessie 8  with Virtualenv, Gunicorn and Supervisor
 ## TODO
 
 * server : replace SpaceGame```new``` with ```Object.create()```
-* client : rewrite Flask DB store with redis to avoid global
+* ~~client : rewrite Flask DB store with redis to avoid global~~
 * client : responsive resize events & tap for mobile screen
