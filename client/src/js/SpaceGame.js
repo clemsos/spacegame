@@ -16,6 +16,7 @@ function SpaceGame (settings) {
     this.finalCallback = settings.finalCallback || function(score){ alert(score); };
     this.width = settings.width || window.innerWidth/2;
     this.height = settings.height || window.innerHeight/2 +200;
+
 }
 
 SpaceGame.prototype = {
@@ -26,14 +27,18 @@ SpaceGame.prototype = {
         return this; 
     },
     initSVG : function(divName) {
-        var w = this.width;
+        var w = this.width - 20;
             h = this.height;
 
         // draw SVG 
         this.svg = d3.select(divName)
             .append("svg")
             .attr("width", w)
-            .attr("height", h);
+            .attr("height", h)
+            .attr("preserveAspectRatio", "xMinYMin")
+            .attr("viewBox", "0 0 "+w+" "+h)
+            //class to make it responsive
+            .classed("svg-content-responsive", true); 
 
         // draw circle
         var circle = this.svg.append("circle")

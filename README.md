@@ -39,7 +39,6 @@ to use redis, run ```pip install-redis```
 
     npm start
 
-
 ## Test
 
 **Test server**
@@ -76,4 +75,4 @@ Deployed on Linode VPS Debian Jessie 8  with Virtualenv, Gunicorn and Supervisor
 
 * server : replace SpaceGame```new``` with ```Object.create()```
 * ~~client : rewrite Flask DB store with redis to avoid global~~
-* client : responsive resize events & tap for mobile screen
+* ~~client : responsive resize events & tap for mobile screen~~
