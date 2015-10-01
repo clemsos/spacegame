@@ -78,7 +78,6 @@ function startNewGame() {
     };
 
     // full screen below 960px
-    console.log(window.innerWidth);
     if (window.mobileAndTabletcheck() || window.innerWidth < 960) {
         settings.width = window.innerWidth;
     };
