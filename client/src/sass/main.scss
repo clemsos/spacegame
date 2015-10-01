@@ -70,11 +70,20 @@ h1 {
     height:100%;
     min-height: calc( 50vh + 200px );
     position: relative; 
-    width : 49%;
+    width : 48%;
+
     svg{
         border: 2px dotted #eee;
         padding:0 ;
     }
+}
+
+
+.left {
+    float:left;
+}
+.right {
+    float:right;
 }
 
 /* Smaller than standard 960 (devices and browsers) */
@@ -97,12 +106,7 @@ h1 {
     }
 }
 
-.left {
-    float:left;
-}
-.right {
-    float: left;
-}
+
 
 canvas {
     position : absolute;

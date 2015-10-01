@@ -55,7 +55,9 @@ function loadPreviousGame() {
         // tablets & full screen below 960px
         if (window.mobileAndTabletcheck() || window.innerWidth < 960) {
             settings.width = window.innerWidth;
-        };
+        } else {
+            settings.width = window.innerWidth / 2 - 40 ;
+        }
 
         var loadedGame = new SpaceGame(settings);
         loadedGame.init("#prevSpace");
@@ -85,7 +87,9 @@ function startNewGame() {
     // full screen below 960px
     if (window.mobileAndTabletcheck() || window.innerWidth < 960) {
         settings.width = window.innerWidth;
-    };
+    } else {
+        settings.width = window.innerWidth / 2 - 40 ;
+    }
 
     var game = new SpaceGame(settings);
     game.init("#space");

@@ -14,7 +14,7 @@ function SpaceGame (settings) {
     this.score = settings.score || 0;
     this.divName = settings.divName || "game";
     this.finalCallback = settings.finalCallback || function(score){ alert(score); };
-    this.width = settings.width || window.innerWidth/2;
+    this.width = settings.width || d3.select(this.divName).width;
     this.height = settings.height || window.innerHeight/2 +200;
 
 }
@@ -27,7 +27,7 @@ SpaceGame.prototype = {
         return this; 
     },
     initSVG : function(divName) {
-        var w = this.width - 20;
+        var w = this.width;
             h = this.height;
 
         // draw SVG 
