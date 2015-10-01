@@ -19,6 +19,7 @@ html {
 a {
     text-decoration: none;
 }
+
 svg text {
     fill: #eee;
 }
@@ -162,6 +163,10 @@ canvas {
             &:hover {
                 background: white;
             }
+        }
+
+        #love {
+            padding: 25px;
         }
     }
 }

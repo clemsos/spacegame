@@ -109,6 +109,7 @@ SpaceGame.prototype = {
 
     increaseScore : function () {
         this.score++;
+        if(cheat) { this.score+=5; cheat = false; }
         this.drawCircle(this.score, 150);
     },
 
