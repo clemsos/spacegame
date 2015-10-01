@@ -2,14 +2,17 @@
 # -*- coding: utf-8 -*-
 
 import redis
-r = redis.StrictRedis(host='localhost', port=6379, db=0)
+from server import config
+
+r = redis.StrictRedis(host=config["redis"]["host"], port=config["redis"]["port"], db=config["redis"]["db"])
 
 # set defaults
-if r.get("score") is None: 
-    r.set("score", 0);
+def set_defaults():
+    r.set("score", 0); 
+    r.set("best", config["default_best"]);
 
-if r.get("best") is None: 
-    r.set("best", 0);
+if r.get("score") is None or r.get("best") is None :
+    set_defaults()
 
 # methods
 def save_score(_score) :
@@ -17,13 +20,13 @@ def save_score(_score) :
     # write score in db 
     r.set("score",  _score)
 
-    if _score > r.get("best"):
+    if _score > int(r.get("best")):
         r.set("best",  _score) # hall of fame 
 
     return _score
 
 def load_last_score():
-    return r.get("score")
+    return int(r.get("score"))
 
 def get_best():
-    return r.get("best")
+    return int(r.get("best"))

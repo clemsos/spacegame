@@ -11,7 +11,11 @@ basedir = os.path.dirname(os.path.realpath(__file__))
 ASSETS_DIR = os.path.join(os.path.dirname(basedir), "client")
 
 # config file
-config_path = os.path.join(os.path.dirname(basedir),"config.json")
+try :
+    if os.environ['SPACEGAME_ENV'] == "test"  :
+        config_path = os.path.join(os.path.dirname(basedir),os.path.join("tests","config.json"))
+except KeyError: # spacegame env_path does not exist
+    config_path = os.path.join(os.path.dirname(basedir),"config.json")
 
 with open(config_path) as config_file:
     config = json.load(config_file)

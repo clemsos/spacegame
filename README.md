@@ -7,8 +7,8 @@ A game from outer space
 
 Basic config is available in ```config.json``` file.
 
-* chose database : ```null``` or ```redis``` 
-
+* ```database``` : ```null``` or ```redis```
+* ```default_best``` : default best score when initiating
 
 ## Dependencies
 
