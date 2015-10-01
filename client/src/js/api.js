@@ -7,6 +7,8 @@ var config = require( '../../config/config');
 var request = require('browser-request');
 var apiURL = "http://"+ config.api.spacegame.url + ":" +config.api.spacegame.port;
 
+console.log(apiURL);
+
 // load the last game, returns the last score
 function loadLastScore(callback) {
 

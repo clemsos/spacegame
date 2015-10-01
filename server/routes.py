@@ -2,14 +2,23 @@
 # -*- coding: utf-8 -*-
 
 import os
-from server import app, basedir
-from server.db import save_score, load_last_score, get_best
+from server import app, basedir, config
 from flask import render_template, request, url_for, make_response, jsonify
 
+# select DB
+if config["database"] =="redis" : 
+    from server.db_redis import save_score, load_last_score, get_best
+elif config["database"] == None :
+    from server.db import save_score, load_last_score, get_best
+else :
+    raise ValueError("Wrong database config, should be redis or None")
+
+# single page app
 @app.route("/")
 def home():
     return make_response(open(os.path.join(basedir, '../client/index.html')).read())
 
+# API
 @app.route("/last/",  methods=['GET'])
 def api_get_score():
     score = load_last_score()

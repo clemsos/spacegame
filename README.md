@@ -3,6 +3,13 @@
 A game from outer space
 
 
+## Config
+
+Basic config is available in ```config.json``` file.
+
+* chose database : ```null``` or ```redis``` 
+
+
 ## Dependencies
 
 **Python server**
@@ -10,6 +17,8 @@ A game from outer space
     virtualenv venv
     . venv/bin/activate
     pip install -r requirements.txt
+
+to use redis, run ```pip install-redis```
 
 **JS client**
 

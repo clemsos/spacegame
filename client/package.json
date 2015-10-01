@@ -19,11 +19,11 @@
   },
   "scripts": {
     "start": "npm run watch-js & npm run watch-css",
-    "build": "EXPORT NODE_ENV=production && npm run build-js && npm run build-css",
+    "build": "export NODE_ENV=production && npm run build-js && npm run build-css",
     "watch-js": "watchify . -o js/bundle.js -v -d .",
-    "build-js": "browserify src/js/app.js | uglifyjs -cm > js/bundle.min.js",
+    "build-js": "browserify src/js/app.js | uglifyjs -cm > js/bundle.js",
     "watch-css": "sass --watch src/sass/main.scss:css/style.css",
-    "build-css": "sass src/sass/main.scss css/style.min.css --style compressed ",
+    "build-css": "sass src/sass/main.scss css/style.css --style compressed ",
     "test": "browserify-test"
   },
   "author": "Clément Renaud <hi@clementrenaud.com>",
