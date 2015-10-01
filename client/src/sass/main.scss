@@ -77,7 +77,17 @@ h1 {
 }
 
 /* Smaller than standard 960 (devices and browsers) */
-@media only screen and (max-width: 959px) {
+@media only screen and (max-width: 956px)   {
+    .player {
+        width : 100%;
+    }
+    html {
+        overflow: scroll;
+    }
+}
+
+ // mobile and tablets 
+@media only screen and (max-width: 1024px)   {
     .player {
         width : 100%;
     }

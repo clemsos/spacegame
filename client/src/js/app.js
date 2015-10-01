@@ -52,7 +52,7 @@ function loadPreviousGame() {
             score : score
         };
 
-        // full screen below 960px
+        // tablets & full screen below 960px
         if (window.mobileAndTabletcheck() || window.innerWidth < 960) {
             settings.width = window.innerWidth;
         };
